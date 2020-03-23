@@ -10,3 +10,4 @@ This is a password generator using vanilla JavaScript and Materialize. Once the 
 - [Elias Roussos](https://github.com/EliasIsaiah)
 
 ## Link To Website
+- https://eliasisaiah.github.io/trilogy_password_generator/

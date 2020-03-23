@@ -36,6 +36,15 @@ let getRand = (arr) => {
 
 };
 
+// helper function that shuffles an array
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
 // returns data from modal
 let getPasswordCriteria = () => {
 
@@ -99,5 +108,20 @@ let generatePass = () => {
     };
     availableChars = availableChars.concat(specialCharArr);
   };
+
+  result = result.concat(mustHaveChars);
+
+  // determines the amount of characters left to meet users request
+  let difference = criteria.length - result.length;
+
+  for (let i = 0; i < difference; i++) {
+    // variable created to hold the random characters from the array
+    let addedChars = getRand(availableChars);
+    // adds variables to the final results array
+    result.push(addedChars);
+  }
+
+  shuffle(result);
+  return result.join('');
 
 };

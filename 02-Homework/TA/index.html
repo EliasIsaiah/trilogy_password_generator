@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -17,33 +17,36 @@
 
 </head>
 
-<body>
+<body id="backgroundImg">
     <div class="container">
         <div class="row">
             <div class="col s12 center">
                 <div>
-                    <h1>Password Generator</h1>
+                    <h1 class="mainHeader">Password Generator</h1>
                 </div>
             </div>
         <div class="row">
-            <div class="col s10 offset-s1 center">
-
-
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Top Secret Password</h4>
+            <div class="col s5 offset-s3 center">
+                <div class="mainBody">
+                    <div class="mt-4 randName">
+                        <p>Your random password is :</p>
                     </div>
-                    <div class="card-body">
-                        <p id="password">???</p>
+                    <div>
+                        <p id="password">??</p>
                     </div>
-                    <div class="card-footer">
+                    <div>
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Generate Password</a>
+                        <div>
+                            <button id="genBtn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Generate Password</button>
+                        </div>
 
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
+
                             <div class="modal-content">
+
                             <h4>Password Criteria</h4>
+
                             <div class="row">
                                 <div class="input-field col s6 offset-s3">
                                     <input id="length" type="text" class="validate">
@@ -82,12 +85,17 @@
                             </div>
                             
                             </div>
+
                             <div class="modal-footer">
+
                                 <div class="row">
+
                                     <div class="col s12 center">
                                         <button href="#!" onclick="generatePass()" id="submit" class="modal-close waves-effect waves-green btn-flat">Submit</button>
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -96,7 +104,7 @@
         </div>
         </div>
     </div>
-    <script src="./app.js"></script>
+    <script src="./javascript/app.js"></script>
 </body>
 
 </html>

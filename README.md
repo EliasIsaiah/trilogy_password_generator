@@ -11,3 +11,6 @@ This is a password generator using vanilla JavaScript and Materialize. Once the 
 
 ## Link To Website
 - https://eliasisaiah.github.io/trilogy_password_generator/
+
+
+![website_Gif](02-Homework/TA/images/slack_TA_password_demo.gif)

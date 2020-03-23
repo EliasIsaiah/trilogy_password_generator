@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap');
 
+body {
+  color: rgba(255, 255, 255, .8);
+}
+
 body#backgroundImg {
   background: url("../images/tayyab-ejaz-hWYx2Ttw_2o-unsplash.jpg") no-repeat center fixed;
   background-size: cover;
 }
 
 h1.mainHeader {
-  color: rgba(255, 255, 255, .8);
   font-family: 'Raleway', sans-serif;
 }
 
 div.mainBody {
   background-color: rgb(47, 79, 79);
   font-family: 'Raleway', sans-serif;
-  height: 200px;
-  width: 450px;
 }
 
 button#genBtn {
@@ -24,4 +25,9 @@ button#genBtn {
 
 div.randName {
   padding: 15px;
+}
+
+#password {
+  text-align: center;
+  padding: 50px 0px;
 }

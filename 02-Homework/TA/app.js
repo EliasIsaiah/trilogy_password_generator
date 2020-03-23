@@ -26,6 +26,7 @@ let lowercaseHTML = document.getElementById("lowercase");
 let uppercaseHTML = document.getElementById("uppercase");
 let numbersHTML = document.getElementById("numbers");
 let specialCharsHTML = document.getElementById("specialChars");
+let passwordHTML = document.getElementById("password");
 
 // helper function used to get a random index in an array
 let getRand = (arr) => {
@@ -122,6 +123,8 @@ let generatePass = () => {
   }
 
   shuffle(result);
-  return result.join('');
+  console.log(result.join(''));
+  result = result.join('');
+  passwordHTML.innerHTML = result;
 
 };

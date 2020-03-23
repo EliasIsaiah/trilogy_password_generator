@@ -11,27 +11,38 @@ const uppercaseArr = [
 const numbersArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 const specialCharArr = [
-  '@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':',
-  ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'
+  '@', '%', '+', '!', '#', '$', '?', '-', '_'
 ];
 
+// initializes modal from materialize
 document.addEventListener('DOMContentLoaded', function() {
   const elems = document.querySelectorAll('.modal');
   const instances = M.Modal.init(elems);
 });
 
+// using variables to hold the id's of the checkboxes & input
 let lengthHTML = document.getElementById("length");
 let lowercaseHTML = document.getElementById("lowercase");
 let uppercaseHTML = document.getElementById("uppercase");
 let numbersHTML = document.getElementById("numbers");
 let specialCharsHTML = document.getElementById("specialChars");
 
-let getPasswordCriteria = () => {
-  console.log(lengthHTML.value);
+// helper function used to get a random index in an array
+let getRand = (arr) => {
 
+  let randIndex = Math.floor(Math.random() * arr.length);
+  let randChar = arr[randIndex];
+  return randChar;
+
+};
+
+// returns data from modal
+let getPasswordCriteria = () => {
+
+  // base case - sets range of characters allowed for the password
   if (lengthHTML.value < 8) {
     alert("Password has to be at least 8 characters long.");
-  } else if (lengthHTML.value > 128) {
+  } else if (lengthHTML.value >= 128) {
     alert("Password must be less than 128 characters long.");
   };
 
@@ -39,6 +50,7 @@ let getPasswordCriteria = () => {
     alert("You must choose at least one character type.");
   };
 
+  // stores users password criteria
   let passwordObj = {
     length : lengthHTML.value,
     lowercase : lowercaseHTML.checked,
@@ -47,9 +59,45 @@ let getPasswordCriteria = () => {
     specialChars : specialCharsHTML.checked
   };
 
-  console.log(passwordObj);
+  return passwordObj;
+
 };
 
+// takes in the passwords criteria and generates a password
 let generatePass = () => {
-  console.log("hello");
+
+  let availableChars = [];
+  let mustHaveChars = [];
+  let result = [];
+
+  let criteria = getPasswordCriteria();
+
+  if (criteria.lowercase) {
+    for (let i = 0; i < 2; i++) {
+      mustHaveChars.push(getRand(lowercaseArr));
+    };
+    availableChars = availableChars.concat(lowercaseArr);
+  };
+
+  if (criteria.uppercase) {
+    for (let i = 0; i < 2; i++) {
+      mustHaveChars.push(getRand(uppercaseArr));
+    };
+    availableChars = availableChars.concat(uppercaseArr);
+  };
+
+  if (criteria.numbers) {
+    for (let i = 0; i < 2; i++) {
+      mustHaveChars.push(getRand(numbersArr));
+    };
+    availableChars = availableChars.concat(numbersArr);
+  };
+
+  if (criteria.specialChars) {
+    for (let i = 0; i < 2; i++) {
+      mustHaveChars.push(getRand(specialCharArr));
+    };
+    availableChars = availableChars.concat(specialCharArr);
+  };
+
 };

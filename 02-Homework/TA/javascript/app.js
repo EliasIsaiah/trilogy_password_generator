@@ -52,12 +52,15 @@ let getPasswordCriteria = () => {
   // base case - sets range of characters allowed for the password
   if (lengthHTML.value < 8) {
     alert("Password has to be at least 8 characters long.");
+    return false;
   } else if (lengthHTML.value >= 128) {
     alert("Password must be less than 128 characters long.");
+    return false;
   };
 
   if (lowercaseHTML.checked === false && uppercaseHTML.checked === false && numbersHTML.checked === false && specialCharsHTML.checked === false ) {
     alert("You must choose at least one character type.");
+    return false;
   };
 
   // stores users password criteria
